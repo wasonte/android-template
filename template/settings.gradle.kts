@@ -21,8 +21,9 @@ include(
     ":androidApp",
     ":lint-checks",
     ":core:commons",
+    ":core:ui",
     ":core:domain",
-    ":core:data",
+    ":core:data"
 )
 
 // testing helper submodules
