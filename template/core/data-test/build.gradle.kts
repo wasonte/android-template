@@ -5,8 +5,8 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:commons"))
-    implementation(project(":core:data"))
+    implementation(projects.core.commons)
+    implementation(projects.core.data)
 
     implementation(libs.ktor.engine.mock)
 }

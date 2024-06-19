@@ -71,8 +71,8 @@ android {
 
 dependencies {
     // Project Dependencies
-    implementation(project(":core:domain"))
-    implementation(project(":core:commons"))
+    implementation(projects.core.domain)
+    implementation(projects.core.commons)
 
     // Dependencies
     // Compose
@@ -103,7 +103,7 @@ dependencies {
     androidTestImplementation(libs.test.core)
     androidTestImplementation(libs.bundles.compose.test)
     androidTestImplementation(libs.ktor.engine.mock)
-    androidTestImplementation(project(":core:data-test"))
+    androidTestImplementation(projects.core.dataTest)
 
     // Test Dependencies
     testImplementation(libs.bundles.test.core)

@@ -5,9 +5,9 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core:commons"))
-    api(libs.bundles.network)
+    implementation(projects.core.commons)
+    implementation(libs.bundles.network)
     implementation(libs.datastore)
 
-    testImplementation(project(":core:data-test"))
+    testImplementation(projects.core.dataTest)
 }
