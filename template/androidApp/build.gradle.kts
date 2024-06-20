@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    kotlin("kapt")
+    alias(libs.plugins.template.coroutines)
     id(libs.plugins.hilt.android.get().pluginId)
-    id("template.coroutines")
+    kotlin("kapt")
 }
 
 android {

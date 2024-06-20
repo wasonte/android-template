@@ -1,4 +1,4 @@
 plugins {
-    id("template.kotlin.feature")
-    id("template.coroutines")
+    alias(libs.plugins.template.kotlin.feature)
+    alias(libs.plugins.template.coroutines)
 }
