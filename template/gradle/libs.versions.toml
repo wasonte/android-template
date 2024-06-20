@@ -151,6 +151,7 @@ test-core = [
 [plugins]
 versions = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions" }
 android-application = { id = "com.android.application", version.ref = "gradle-android" }
+android-library = { id = "com.android.library", version.ref = "gradle-android" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 hilt-android = { id = "dagger.hilt.android.plugin", version.ref = "hilt" }
 jvm = { id = "java-library", version.ref = "jvm" }
@@ -161,5 +162,6 @@ ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.3.1" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 # Plugins defined by this project
-template-coroutines = { id = "template.coroutines", version = "unspecified" }
+template-android-library = { id = "template.android.library", version = "unspecified" }
 template-kotlin-feature = { id = "template.kotlin.feature", version = "unspecified" }
+template-coroutines = { id = "template.coroutines", version = "unspecified" }

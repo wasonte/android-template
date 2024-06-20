@@ -16,11 +16,14 @@ dependencies {
 
 gradlePlugin {
     plugins {
+        register("androidLibrary") {
+            id = "template.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
         register("coroutines") {
             id = "template.coroutines"
             implementationClass = "CoroutinesConventionPlugin"
         }
-
         register("kotlinFeature") {
             id = "template.kotlin.feature"
             implementationClass = "KotlinFeatureConventionPlugin"

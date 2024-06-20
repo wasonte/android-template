@@ -1,11 +1,11 @@
 plugins {
-    alias(libs.plugins.template.kotlin.feature)
+    alias(libs.plugins.template.android.library)
     alias(libs.plugins.template.coroutines)
 }
 
-//android {
-//    namespace = "io.bloco.core.ui"
-//}
+android {
+    namespace = "io.bloco.core.ui"
+}
 
 dependencies {
     testImplementation(libs.junit)
