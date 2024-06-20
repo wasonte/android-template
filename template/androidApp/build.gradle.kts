@@ -1,6 +1,6 @@
 plugins {
-    id(libs.plugins.android.application.get().pluginId)
-    id(libs.plugins.kotlin.android.get().pluginId)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     kotlin("kapt")
     id(libs.plugins.hilt.android.get().pluginId)
     id("template.coroutines")
@@ -71,6 +71,7 @@ android {
 
 dependencies {
     // Project Dependencies
+    implementation(projects.core.ui)
     implementation(projects.core.domain)
     implementation(projects.core.commons)
 

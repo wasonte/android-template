@@ -1,7 +1,7 @@
 plugins {
     id("template.kotlin.feature")
     id("template.coroutines")
-    id(libs.plugins.kotlin.serialization.get().pluginId)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 dependencies {

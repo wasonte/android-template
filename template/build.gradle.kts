@@ -21,6 +21,7 @@ buildscript {
 // Don't use plugin {} for this one, check https://github.com/ben-manes/gradle-versions-plugin
 apply(plugin = libs.plugins.versions.get().pluginId)
 plugins {
+    alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.serialization) apply false
