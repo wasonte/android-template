@@ -1,4 +1,4 @@
-package io.bloco.template.features.details
+package io.bloco.core.ui.features.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

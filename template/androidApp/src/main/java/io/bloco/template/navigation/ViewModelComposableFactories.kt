@@ -7,7 +7,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dagger.hilt.android.EntryPointAccessors
 import io.bloco.template.MainActivity.ViewModelFactoryProvider
-import io.bloco.template.features.details.DetailsViewModel
+import io.bloco.core.ui.features.details.DetailsViewModel
 
 interface BaseViewModelFactoryProvider {
     fun getDetailsViewModelFactory(): DetailsViewModel.Factory

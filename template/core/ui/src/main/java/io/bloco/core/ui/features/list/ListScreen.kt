@@ -1,4 +1,4 @@
-package io.bloco.template.features.list
+package io.bloco.core.ui.features.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
@@ -24,12 +24,12 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import io.bloco.core.domain.models.Book
-import io.bloco.template.R
+import io.bloco.core.ui.R
 import io.bloco.core.ui.component.Toast
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
 import io.bloco.core.ui.theme.TemplateTheme
 import io.bloco.core.ui.utils.preview.DeviceFormatPreview
 import io.bloco.core.ui.utils.preview.FontScalePreview

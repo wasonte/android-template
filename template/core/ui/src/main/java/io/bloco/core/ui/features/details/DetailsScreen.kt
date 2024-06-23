@@ -1,4 +1,4 @@
-package io.bloco.template.features.details
+package io.bloco.core.ui.features.details
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -11,7 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import io.bloco.template.R
+import io.bloco.core.ui.R
 import io.bloco.core.ui.component.Toast
 
 @Composable

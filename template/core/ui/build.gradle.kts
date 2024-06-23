@@ -1,6 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     alias(libs.plugins.template.android.feature)
     alias(libs.plugins.template.coroutines)
+    id(libs.plugins.hilt.android.get().pluginId)
+    kotlin("kapt")
 }
 
 android {
@@ -26,6 +30,8 @@ dependencies {
 
     // libs
     implementation(libs.bundles.compose)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     // test
     testImplementation(libs.junit)

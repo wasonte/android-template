@@ -1,4 +1,4 @@
-package io.bloco.template.features.list
+package io.bloco.core.ui.features.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,9 +6,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.bloco.core.commons.PublishFlow
 import io.bloco.core.domain.GetBooks
 import io.bloco.core.domain.models.Book
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.filterIsInstance

@@ -3,10 +3,10 @@ package io.bloco.template
 import app.cash.turbine.test
 import io.bloco.core.domain.GetBooks
 import io.bloco.core.domain.models.Book
-import io.bloco.template.features.list.ListViewModel
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
-import io.bloco.template.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
+import io.bloco.core.ui.features.list.ListViewModel
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
+import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
