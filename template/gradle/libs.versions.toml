@@ -3,34 +3,36 @@ sdk-compile = "33"
 sdk-target = "33"
 sdk-min = "23"
 
+kotlin = "1.8.20"
 gradle-android = "7.4.2"
 gradle-versions = "0.43.0"
 
+accompanist = "0.30.1"
 compose = "1.4.2"
-compose-material = "1.0.1"
 compose-compiler = "1.4.6"
+compose-material = "1.0.1"
 compose-navigation = "2.5.3"
 compose-navigation-hilt = "1.0.0"
-accompanist = "0.30.1"
-datastore = "1.0.0"
-
-lint = "25.3.0"
-detekt = "1.22.0"
-
-javax = "1"
-hilt = "2.45"
-mockk = "1.13.5"
-hilt-testing = "2.45"
-dagger = "2.43.2"
-kotlin = "1.8.20"
-ktor = "2.3.0"
-jvm = "5.4.1"
 coroutines = "1.6.4"
+dagger = "2.43.2"
+datastore = "1.0.0"
+detekt = "1.22.0"
+hilt = "2.45"
+hilt-testing = "2.45"
+javax = "1"
+jvm = "5.4.1"
+ktor = "2.3.0"
+lifecycle = "2.6.1"
+lint = "25.3.0"
+mockk = "1.13.5"
 
 [libraries]
 ## Android
 androidx-core = { group = "androidx.core", name = "core-ktx", version = "1.9.0" }
-androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version = "2.6.1" }
+androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-runtimeTesting = { group = "androidx.lifecycle", name = "lifecycle-runtime-testing",version.ref = "lifecycle" }
+androidx-lifecycle-viewModel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.7.1" }
 
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -162,6 +164,7 @@ ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.3.1" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 # Plugins defined by this project
+template-android-feature = { id = "template.android.feature", version = "unspecified" }
 template-android-library = { id = "template.android.library", version = "unspecified" }
 template-kotlin-feature = { id = "template.kotlin.feature", version = "unspecified" }
 template-coroutines = { id = "template.coroutines", version = "unspecified" }

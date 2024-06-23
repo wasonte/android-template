@@ -21,29 +21,31 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
-import org.gradle.kotlin.dsl.kotlin
 
-class AndroidLibraryConventionPlugin : Plugin<Project> {
+class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) {
-                apply("com.android.library")
-                apply("org.jetbrains.kotlin.android")
-            }
-
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-            extensions.configure<LibraryExtension> {
-                compileSdk = libs.findVersion("sdk-target").get().toString().toInt()
-                defaultConfig.targetSdk = libs.findVersion("sdk-target").get().toString().toInt()
-                testOptions.animationsDisabled = true
-                // The resource prefix is derived from the module name,
-                // so resources inside ":core:module1" must be prefixed with "core_module1_"
-//                resourcePrefix = path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_").lowercase() + "_" // TODO
+            pluginManager.apply {
+                apply("template.android.library")
+//                apply("template.android.hilt") TODO
             }
+            extensions.configure<LibraryExtension> {
+                defaultConfig {
+                    testInstrumentationRunner =
+                        "io.bloco.template.TestRunner"
+                }
+                testOptions.animationsDisabled = true
+            }
+
             dependencies {
-                add("testImplementation", kotlin("test"))
+                add("implementation", libs.findLibrary("hilt.navigation.compose").get())
+                add("implementation", libs.findLibrary("androidx.lifecycle.runtime.compose").get())
+                add("implementation", libs.findLibrary("androidx.lifecycle.viewModel.compose").get())
 //                add("implementation", libs.findLibrary("androidx.tracing.ktx").get())
+
+                add("androidTestImplementation", libs.findLibrary("androidx.lifecycle.runtimeTesting").get())
             }
         }
     }

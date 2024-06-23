@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.template.android.library)
+    alias(libs.plugins.template.android.feature)
     alias(libs.plugins.template.coroutines)
 }
 
