@@ -20,7 +20,13 @@ android {
 }
 
 dependencies {
+    // projects
+    implementation(projects.core.commons)
+    implementation(projects.core.domain)
+
+    // libs
     implementation(libs.bundles.compose)
 
+    // test
     testImplementation(libs.junit)
 }
