@@ -1,4 +1,4 @@
-package io.bloco.template.utils
+package io.bloco.core.ui.utils
 
 import io.bloco.core.commons.Log
 

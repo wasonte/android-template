@@ -1,4 +1,4 @@
-package io.bloco.template.utils.preview
+package io.bloco.core.ui.utils.preview
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES

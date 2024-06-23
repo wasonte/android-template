@@ -1,4 +1,4 @@
-package io.bloco.template.utils.preview
+package io.bloco.core.ui.utils.preview
 
 import androidx.compose.ui.tooling.preview.Preview
 

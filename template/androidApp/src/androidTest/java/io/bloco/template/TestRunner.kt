@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
 import dagger.hilt.android.testing.HiltTestApplication
 import io.bloco.core.commons.Log.addLogger
-import io.bloco.template.utils.AndroidLogger
+import io.bloco.core.ui.utils.AndroidLogger
 
 class TestRunner : AndroidJUnitRunner() {
     override fun newApplication(

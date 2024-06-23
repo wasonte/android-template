@@ -31,9 +31,9 @@ import io.bloco.template.features.list.ListViewModel.ListScreenUiState.ErrorFrom
 import io.bloco.template.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
 import io.bloco.template.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
 import io.bloco.core.ui.theme.TemplateTheme
-import io.bloco.template.utils.preview.DeviceFormatPreview
-import io.bloco.template.utils.preview.FontScalePreview
-import io.bloco.template.utils.preview.ThemeModePreview
+import io.bloco.core.ui.utils.preview.DeviceFormatPreview
+import io.bloco.core.ui.utils.preview.FontScalePreview
+import io.bloco.core.ui.utils.preview.ThemeModePreview
 
 @Composable
 fun ListScreen(

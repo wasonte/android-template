@@ -4,7 +4,7 @@ import android.app.Application
 import android.os.StrictMode
 import dagger.hilt.android.HiltAndroidApp
 import io.bloco.core.commons.Log.addLogger
-import io.bloco.template.utils.AndroidLogger
+import io.bloco.core.ui.utils.AndroidLogger
 
 @HiltAndroidApp
 class App : Application() {
