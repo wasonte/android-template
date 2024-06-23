@@ -5,8 +5,16 @@ plugins {
 
 android {
     namespace = "io.bloco.core.ui"
+
+    buildFeatures { compose = true }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
 }
 
 dependencies {
+    implementation(libs.bundles.compose)
+
     testImplementation(libs.junit)
 }

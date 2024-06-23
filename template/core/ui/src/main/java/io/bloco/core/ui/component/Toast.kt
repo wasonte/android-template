@@ -1,4 +1,4 @@
-package io.bloco.template.component
+package io.bloco.core.ui.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
