@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import io.bloco.template.R
-import io.bloco.template.component.Toast
+import io.bloco.core.ui.component.Toast
 
 @Composable
 fun DetailsScreen(detailsViewModel: DetailsViewModel) {

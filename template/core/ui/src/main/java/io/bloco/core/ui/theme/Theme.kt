@@ -1,4 +1,4 @@
-package io.bloco.template.theme
+package io.bloco.core.ui.theme
 
 import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast

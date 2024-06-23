@@ -22,7 +22,7 @@ import io.bloco.template.MainActivityViewModel.UiState.Loading
 import io.bloco.template.MainActivityViewModel.UiState.Success
 import io.bloco.template.navigation.BaseViewModelFactoryProvider
 import io.bloco.template.navigation.TemplateNaveHost
-import io.bloco.template.theme.TemplateTheme
+import io.bloco.core.ui.theme.TemplateTheme
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch

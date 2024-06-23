@@ -25,12 +25,12 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import io.bloco.core.domain.models.Book
 import io.bloco.template.R
-import io.bloco.template.component.Toast
+import io.bloco.core.ui.component.Toast
 import io.bloco.template.features.list.ListViewModel.ListScreenUiState
 import io.bloco.template.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
 import io.bloco.template.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
 import io.bloco.template.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
-import io.bloco.template.theme.TemplateTheme
+import io.bloco.core.ui.theme.TemplateTheme
 import io.bloco.template.utils.preview.DeviceFormatPreview
 import io.bloco.template.utils.preview.FontScalePreview
 import io.bloco.template.utils.preview.ThemeModePreview
