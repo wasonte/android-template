@@ -5,7 +5,6 @@ plugins {
 
 dependencies {
     implementation(projects.core.commons)
-    implementation(projects.core.data)
 
     implementation(libs.bundles.javax)
 }

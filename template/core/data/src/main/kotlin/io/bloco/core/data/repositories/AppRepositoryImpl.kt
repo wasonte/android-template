@@ -4,21 +4,22 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import io.bloco.core.domain.repositories.AppRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
-class AppRepository @Inject constructor(
+class AppRepositoryImpl @Inject constructor(
     private val dataUserPreferences: DataStore<Preferences>
-) {
+): AppRepository {
 
-    suspend fun saveHasBeenOpenedPreference() {
+    override suspend fun saveHasBeenOpenedPreference() {
         dataUserPreferences.edit {
             it[APP_OPENED] = true
         }
     }
 
-    fun hasBeenOpened(): Flow<Boolean> =
+    override fun hasBeenOpened(): Flow<Boolean> =
         dataUserPreferences.data.map { preferences ->
             preferences[APP_OPENED] ?: false
         }

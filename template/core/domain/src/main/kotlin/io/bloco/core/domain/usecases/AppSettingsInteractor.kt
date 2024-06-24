@@ -1,10 +1,10 @@
 package io.bloco.core.domain.usecases
 
-import io.bloco.core.data.repositories.AppRepository
+import io.bloco.core.domain.repositories.AppRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class AppSettingsUseCase @Inject constructor(
+class AppSettingsInteractor @Inject constructor(
     private val appRepository: AppRepository,
 ) {
 
