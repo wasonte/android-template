@@ -25,8 +25,3 @@ include(
     ":core:domain",
     ":core:data"
 )
-
-// testing helper submodules
-include(
-    ":core:data-test",
-)

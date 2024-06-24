@@ -12,8 +12,8 @@ import androidx.test.platform.app.InstrumentationRegistry
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.bloco.core.commons.endpoints.OpenLibraryEndpoint
-import io.bloco.datatest.DataTestResources
-import io.bloco.datatest.MockOpenLibraryApi
+import io.bloco.template.utils.DataTestResources
+import io.bloco.template.utils.MockOpenLibraryApi
 import io.ktor.http.HttpStatusCode
 import org.junit.Before
 import org.junit.Rule

@@ -1,4 +1,4 @@
-package io.bloco.datatest
+package io.bloco.template.utils
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine

@@ -1,4 +1,4 @@
-package io.bloco.datatest
+package io.bloco.template.utils
 
 object DataTestResources {
     fun bookListJson(): String =

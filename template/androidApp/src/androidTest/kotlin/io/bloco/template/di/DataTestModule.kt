@@ -3,7 +3,7 @@ package io.bloco.template.di
 import dagger.Module
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
-import io.bloco.datatest.MockOpenLibraryApi
+import io.bloco.template.utils.MockOpenLibraryApi
 import io.ktor.client.engine.HttpClientEngineConfig
 import io.ktor.client.engine.HttpClientEngineFactory
 
