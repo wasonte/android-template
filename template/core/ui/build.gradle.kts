@@ -29,7 +29,6 @@ dependencies {
     implementation(projects.core.domain)
 
     // libs
-    implementation(libs.bundles.compose)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 

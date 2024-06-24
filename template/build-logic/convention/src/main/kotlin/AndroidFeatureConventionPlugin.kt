@@ -40,11 +40,10 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
+                add("implementation", libs.findBundle("compose").get())
                 add("implementation", libs.findLibrary("hilt.navigation.compose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtime.compose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewModel.compose").get())
-//                add("implementation", libs.findLibrary("androidx.tracing.ktx").get())
-
                 add("androidTestImplementation", libs.findLibrary("androidx.lifecycle.runtimeTesting").get())
             }
         }
