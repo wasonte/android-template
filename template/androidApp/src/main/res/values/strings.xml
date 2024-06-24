@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">template</string>
+
+    <!-- List Screen -->
+    <string name="book_list">Book list</string>
+
+    <!-- Details Screen -->
+    <string name="book_title">Book title: %s</string>
 </resources>
