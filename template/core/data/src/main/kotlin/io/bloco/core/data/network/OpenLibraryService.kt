@@ -3,8 +3,8 @@ package io.bloco.core.data.network
 import io.bloco.core.commons.BackgroundDispatcher
 import io.bloco.core.commons.endpoints.OpenLibraryEndpoint
 import io.bloco.core.commons.loge
-import io.bloco.core.data.models.BookDetailsDto
-import io.bloco.core.data.models.BookRecords
+import io.bloco.core.data.dto.BookDetailsDto
+import io.bloco.core.data.dto.BookRecords
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.url

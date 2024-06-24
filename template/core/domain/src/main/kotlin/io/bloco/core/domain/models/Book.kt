@@ -1,6 +1,6 @@
 package io.bloco.core.domain.models
 
-import io.bloco.core.data.models.BookDto
+import io.bloco.core.data.dto.BookDto
 
 private const val KEY_PREFIX = "/works/"
 

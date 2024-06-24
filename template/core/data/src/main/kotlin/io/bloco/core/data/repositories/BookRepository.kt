@@ -1,7 +1,7 @@
 package io.bloco.core.data.repositories
 
-import io.bloco.core.data.models.BookDetailsDto
-import io.bloco.core.data.models.BookRecords
+import io.bloco.core.data.dto.BookDetailsDto
+import io.bloco.core.data.dto.BookRecords
 import io.bloco.core.data.network.OpenLibraryService
 import javax.inject.Inject
 

@@ -1,12 +1,10 @@
-package io.bloco.core.data.models
+package io.bloco.core.data.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class BookDto(
-    @SerialName("key")
-    val key: String,
+data class BookDetailsDto(
     @SerialName("title")
     val title: String
 )

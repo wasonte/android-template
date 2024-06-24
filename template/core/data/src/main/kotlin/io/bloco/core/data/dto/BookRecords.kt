@@ -1,4 +1,4 @@
-package io.bloco.core.data.models
+package io.bloco.core.data.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
