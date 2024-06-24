@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.bloco.core.commons.PublishFlow
-import io.bloco.core.domain.GetBooks
+import io.bloco.core.domain.usecases.GetBooksUseCase
 import io.bloco.core.domain.models.Book
 import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
 import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val getBooks: GetBooks
+    private val getBooksUseCase: GetBooksUseCase
 ) : ViewModel() {
 
     private val events = PublishFlow<Event>()
@@ -44,7 +44,7 @@ class ListViewModel @Inject constructor(
     }
 
     private suspend fun updateBookList() {
-        getBooks()
+        getBooksUseCase()
             .onSuccess { _state.value = UpdateSuccess(it) }
             .onFailure { _state.value = ErrorFromAPI }
     }

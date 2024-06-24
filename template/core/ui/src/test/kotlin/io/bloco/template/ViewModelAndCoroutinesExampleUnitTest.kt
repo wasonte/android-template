@@ -1,7 +1,7 @@
 package io.bloco.template
 
 import app.cash.turbine.test
-import io.bloco.core.domain.GetBooks
+import io.bloco.core.domain.usecases.GetBooksUseCase
 import io.bloco.core.domain.models.Book
 import io.bloco.core.ui.features.list.ListViewModel
 import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
@@ -21,7 +21,7 @@ class ViewModelAndCoroutinesExampleUnitTest {
     @get:Rule
     val coroutinesTestRule = MockMainDispatcherTestRule()
 
-    private val getBooksMock = mockk<GetBooks>()
+    private val getBooksMock = mockk<GetBooksUseCase>()
 
     private fun buildVM(): ListViewModel = ListViewModel(
         getBooksMock

@@ -1,11 +1,11 @@
-package io.bloco.core.domain
+package io.bloco.core.domain.usecases
 
 import io.bloco.core.data.repositories.BookRepository
 import io.bloco.core.domain.models.Book
 import io.bloco.core.domain.models.toModel
 import javax.inject.Inject
 
-class GetBooks @Inject constructor(
+class GetBooksUseCase @Inject constructor(
     private val bookRepository: BookRepository
 ) {
     suspend operator fun invoke(): Result<List<Book>> {
