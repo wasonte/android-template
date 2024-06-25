@@ -23,7 +23,7 @@ javax = "1"
 jvm = "5.4.1"
 ktor = "2.3.0"
 lifecycle = "2.6.1"
-lint = "25.3.0"
+lint = "31.4.0"
 mockk = "1.13.5"
 
 [libraries]
