@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import io.bloco.core.ui.features.details.DetailsScreen
+import io.bloco.core.ui.features.detail.DetailsScreen
 import io.bloco.core.ui.features.list.ListScreen
 
 @Composable

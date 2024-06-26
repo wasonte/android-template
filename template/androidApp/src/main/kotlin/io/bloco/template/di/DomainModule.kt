@@ -5,9 +5,9 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.bloco.core.data.features.app.AppRepositoryImpl
-import io.bloco.core.data.features.books.BookRepositoryImpl
+import io.bloco.core.data.features.books.BooksRepositoryImpl
 import io.bloco.core.domain.repositories.AppRepository
-import io.bloco.core.domain.repositories.BookRepository
+import io.bloco.core.domain.repositories.BooksRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -20,7 +20,7 @@ abstract class DomainModule {
 
     @Binds
     internal abstract fun bindsBookRepository(
-        bookRepositoryImpl: BookRepositoryImpl,
-    ): BookRepository
+        bookRepositoryImpl: BooksRepositoryImpl,
+    ): BooksRepository
 
 }

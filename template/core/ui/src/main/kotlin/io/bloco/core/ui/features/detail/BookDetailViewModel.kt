@@ -1,4 +1,4 @@
-package io.bloco.core.ui.features.details
+package io.bloco.core.ui.features.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,15 +6,15 @@ import androidx.lifecycle.viewModelScope
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import io.bloco.core.domain.usecases.GetBookUseCase
 import io.bloco.core.domain.models.BookDetail
+import io.bloco.core.domain.repositories.BooksRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class DetailsViewModel @AssistedInject constructor(
+class BookDetailViewModel @AssistedInject constructor(
     @Assisted bookId: String,
-    getBookUseCase: GetBookUseCase,
+    booksRepository: BooksRepository,
 ) : ViewModel() {
 
     private val _updateState =
@@ -23,7 +23,7 @@ class DetailsViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            getBookUseCase(bookId)
+            booksRepository.getBookDetail(bookId)
                 .onSuccess { _updateState.value = UiState.Success(it) }
                 .onFailure { _updateState.value = UiState.ErrorFromAPI }
         }
@@ -37,7 +37,7 @@ class DetailsViewModel @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory {
-        fun create(bookId: String): DetailsViewModel
+        fun create(bookId: String): BookDetailViewModel
     }
 
     companion object {

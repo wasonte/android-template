@@ -1,4 +1,4 @@
-package io.bloco.core.ui.features.details
+package io.bloco.core.ui.features.detail
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -15,13 +15,13 @@ import io.bloco.core.ui.R
 import io.bloco.core.ui.component.Toast
 
 @Composable
-fun DetailsScreen(detailsViewModel: DetailsViewModel) {
-    val bookListUpdateState by detailsViewModel.updateState.collectAsState()
+fun DetailsScreen(bookDetailViewModel: BookDetailViewModel) {
+    val bookListUpdateState by bookDetailViewModel.updateState.collectAsState()
 
     when (val state = bookListUpdateState) {
-        DetailsViewModel.UiState.ErrorFromAPI -> Toast(R.string.api_error)
-        DetailsViewModel.UiState.LoadingFromAPI -> Unit
-        is DetailsViewModel.UiState.Success -> {
+        BookDetailViewModel.UiState.ErrorFromAPI -> Toast(R.string.api_error)
+        BookDetailViewModel.UiState.LoadingFromAPI -> Unit
+        is BookDetailViewModel.UiState.Success -> {
             Column(
                 modifier = Modifier
                     .systemBarsPadding()
