@@ -4,22 +4,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.bloco.core.commons.PublishFlow
-import io.bloco.core.domain.usecases.GetBooksUseCase
 import io.bloco.core.domain.models.Book
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
+import io.bloco.core.domain.usecases.GetBooksUseCase
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.ErrorFromAPI
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.LoadingFromAPI
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.UpdateSuccess
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ListViewModel @Inject constructor(
+class BookListViewModel @Inject constructor(
     private val getBooksUseCase: GetBooksUseCase
 ) : ViewModel() {
 
@@ -29,9 +28,13 @@ class ListViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     init {
+        observeRefreshEvent()
+        updateBookList()
+    }
+
+    private fun observeRefreshEvent() {
         events
             .filterIsInstance<Event.Refresh>()
-            .onStart { updateBookList() }
             .onEach {
                 _state.value = LoadingFromAPI
                 updateBookList()
@@ -43,10 +46,12 @@ class ListViewModel @Inject constructor(
         viewModelScope.launch { events.emit(Event.Refresh) }
     }
 
-    private suspend fun updateBookList() {
-        getBooksUseCase()
-            .onSuccess { _state.value = UpdateSuccess(it) }
-            .onFailure { _state.value = ErrorFromAPI }
+    private fun updateBookList() {
+        viewModelScope.launch {
+            getBooksUseCase()
+                .onSuccess { _state.value = UpdateSuccess(it) }
+                .onFailure { _state.value = ErrorFromAPI }
+        }
     }
 
     private sealed class Event {

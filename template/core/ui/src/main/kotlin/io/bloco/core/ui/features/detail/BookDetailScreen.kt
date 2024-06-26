@@ -3,6 +3,8 @@ package io.bloco.core.ui.features.detail
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,6 +28,7 @@ fun DetailsScreen(bookDetailViewModel: BookDetailViewModel) {
                 modifier = Modifier
                     .systemBarsPadding()
                     .padding(16.dp)
+                    .verticalScroll(rememberScrollState())
             ) {
                 Text(
                     text = stringResource(id = R.string.book_title, state.book.title),
@@ -34,7 +37,8 @@ fun DetailsScreen(bookDetailViewModel: BookDetailViewModel) {
                 Text(
                     text = state.book.description,
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(top = 20.dp)
+                    modifier = Modifier
+                        .padding(top = 20.dp)
                 )
             }
         }

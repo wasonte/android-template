@@ -3,10 +3,10 @@ package io.bloco.template
 import app.cash.turbine.test
 import io.bloco.core.domain.usecases.GetBooksUseCase
 import io.bloco.core.domain.models.Book
-import io.bloco.core.ui.features.list.ListViewModel
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
+import io.bloco.core.ui.features.list.BookListViewModel
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.ErrorFromAPI
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.LoadingFromAPI
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.UpdateSuccess
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
@@ -23,7 +23,7 @@ class ViewModelAndCoroutinesExampleUnitTest {
 
     private val getBooksMock = mockk<GetBooksUseCase>()
 
-    private fun buildVM(): ListViewModel = ListViewModel(
+    private fun buildVM(): BookListViewModel = BookListViewModel(
         getBooksMock
     )
 

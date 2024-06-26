@@ -5,6 +5,8 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -26,10 +28,10 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import io.bloco.core.domain.models.Book
 import io.bloco.core.ui.R
 import io.bloco.core.ui.component.Toast
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
-import io.bloco.core.ui.features.list.ListViewModel.ListScreenUiState.UpdateSuccess
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.ErrorFromAPI
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.LoadingFromAPI
+import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.UpdateSuccess
 import io.bloco.core.ui.theme.TemplateTheme
 import io.bloco.core.ui.utils.preview.DeviceFormatPreview
 import io.bloco.core.ui.utils.preview.FontScalePreview
@@ -37,16 +39,16 @@ import io.bloco.core.ui.utils.preview.ThemeModePreview
 
 @Composable
 fun ListScreen(
-    listViewModel: ListViewModel,
+    bookListViewModel: BookListViewModel,
     openDetailsClicked: (String) -> Unit,
 ) {
-    val bookListUpdateState by listViewModel.state.collectAsState()
+    val bookListUpdateState by bookListViewModel.state.collectAsState()
 
     when (val state = bookListUpdateState) {
         ErrorFromAPI -> ErrorFromApi()
         is UpdateSuccess, LoadingFromAPI -> ListBooks(
             state = state,
-            onRefresh = listViewModel::refresh,
+            onRefresh = bookListViewModel::refresh,
             onDetailsClicked = openDetailsClicked,
         )
     }
@@ -65,6 +67,7 @@ private fun ListBooks(
         .scrollable(rememberScrollState(), Orientation.Vertical)
         .systemBarsPadding()
         .padding(16.dp)
+        .fillMaxSize()
 ) {
     var books by remember { mutableStateOf(emptyList<Book>()) }
     (state as? UpdateSuccess)?.let {
@@ -74,14 +77,15 @@ private fun ListBooks(
     Column {
         Text(
             text = stringResource(id = R.string.book_list),
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.headlineSmall,
         )
-        LazyColumn {
+        LazyColumn{
             itemsIndexed(books) { _, book ->
                 Row(
                     modifier = Modifier
                         .clickable { onDetailsClicked(book.key) }
                         .padding(vertical = 16.dp)
+                        .fillMaxWidth()
                 ) {
                     Text(text = book.title)
                 }
