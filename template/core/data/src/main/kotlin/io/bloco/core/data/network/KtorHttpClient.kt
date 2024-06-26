@@ -19,7 +19,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class OpenLibraryHttpClient @Inject constructor(
+class KtorHttpClient @Inject constructor(
     @ApiUrl private val baseUrl: String,
     private val engine: HttpClientEngineFactory<*>,
 ) {

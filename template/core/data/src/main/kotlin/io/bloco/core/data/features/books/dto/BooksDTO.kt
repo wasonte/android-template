@@ -1,10 +1,10 @@
-package io.bloco.core.data.dto
+package io.bloco.core.data.features.books.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class BookRecords(
+data class BooksDTO(
     @SerialName("numFound")
     val numFound: Int,
     @SerialName("docs")

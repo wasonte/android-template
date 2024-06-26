@@ -1,4 +1,4 @@
-package io.bloco.core.data.dto
+package io.bloco.core.data.features.books.dto
 
 import io.bloco.core.domain.models.Book
 import kotlinx.serialization.SerialName

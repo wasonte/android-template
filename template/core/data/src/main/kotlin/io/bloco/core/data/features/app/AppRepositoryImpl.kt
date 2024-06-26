@@ -1,4 +1,4 @@
-package io.bloco.core.data.repositories
+package io.bloco.core.data.features.app
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

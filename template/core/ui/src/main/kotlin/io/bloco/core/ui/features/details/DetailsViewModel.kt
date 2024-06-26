@@ -7,7 +7,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import io.bloco.core.domain.usecases.GetBookUseCase
-import io.bloco.core.domain.models.BookDetails
+import io.bloco.core.domain.models.BookDetail
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -31,7 +31,7 @@ class DetailsViewModel @AssistedInject constructor(
 
     sealed interface UiState {
         object LoadingFromAPI : UiState
-        data class Success(val book: BookDetails) : UiState
+        data class Success(val book: BookDetail) : UiState
         object ErrorFromAPI : UiState
     }
 

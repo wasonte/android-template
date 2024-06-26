@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.bloco.core.data.repositories.AppRepositoryImpl
-import io.bloco.core.data.repositories.BookRepositoryImpl
+import io.bloco.core.data.features.app.AppRepositoryImpl
+import io.bloco.core.data.features.books.BookRepositoryImpl
 import io.bloco.core.domain.repositories.AppRepository
 import io.bloco.core.domain.repositories.BookRepository
 
