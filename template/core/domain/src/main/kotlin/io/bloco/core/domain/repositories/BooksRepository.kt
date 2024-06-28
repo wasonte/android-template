@@ -5,7 +5,7 @@ import io.bloco.core.domain.models.BookDetail
 
 interface BooksRepository {
 
-    suspend fun getBooks(keyword: String = "Android"): Result<List<Book>>
+    suspend fun getBooks(keyword: String): Result<List<Book>>
 
     suspend fun getBookDetail(id: String): Result<BookDetail>
 

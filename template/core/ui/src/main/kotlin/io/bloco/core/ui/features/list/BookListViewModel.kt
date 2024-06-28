@@ -4,13 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.bloco.core.commons.PublishFlow
+import io.bloco.core.commons.logd
 import io.bloco.core.domain.models.Book
 import io.bloco.core.domain.usecases.GetBooksUseCase
 import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.ErrorFromAPI
 import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.LoadingFromAPI
 import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.UpdateSuccess
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -27,9 +31,11 @@ class BookListViewModel @Inject constructor(
     private val _state = MutableStateFlow<ListScreenUiState>(LoadingFromAPI)
     val state = _state.asStateFlow()
 
+    private val _inputText: MutableStateFlow<String> = MutableStateFlow("Android")
+
     init {
         observeRefreshEvent()
-        updateBookList()
+        debounceSearchBooks()
     }
 
     private fun observeRefreshEvent() {
@@ -37,7 +43,7 @@ class BookListViewModel @Inject constructor(
             .filterIsInstance<Event.Refresh>()
             .onEach {
                 _state.value = LoadingFromAPI
-                updateBookList()
+                searchBooks(_inputText.value)
             }
             .launchIn(viewModelScope)
     }
@@ -46,11 +52,23 @@ class BookListViewModel @Inject constructor(
         viewModelScope.launch { events.emit(Event.Refresh) }
     }
 
-    private fun updateBookList() {
+    fun updateSearch(keyword: String){
+        _inputText.value = keyword
+    }
+
+    private suspend fun searchBooks(keyword: String) {
+        logd("searchBooks: $keyword ")
+        getBooksUseCase(keyword)
+            .onSuccess { _state.value = UpdateSuccess(it) }
+            .onFailure { _state.value = ErrorFromAPI }
+    }
+
+    private fun debounceSearchBooks() {
         viewModelScope.launch {
-            getBooksUseCase()
-                .onSuccess { _state.value = UpdateSuccess(it) }
-                .onFailure { _state.value = ErrorFromAPI }
+            _inputText.debounce(timeoutMillis = 200).collectLatest {
+                logd("Debounce searchBooks: $it ")
+                searchBooks(it)
+            }
         }
     }
 

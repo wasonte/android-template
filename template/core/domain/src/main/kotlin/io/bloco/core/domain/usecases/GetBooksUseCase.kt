@@ -7,5 +7,5 @@ import javax.inject.Inject
 class GetBooksUseCase @Inject constructor(
     private val booksRepository: BooksRepository
 ) {
-    suspend operator fun invoke(): Result<List<Book>> = booksRepository.getBooks()
+    suspend operator fun invoke(keyword: String): Result<List<Book>> = booksRepository.getBooks(keyword)
 }
