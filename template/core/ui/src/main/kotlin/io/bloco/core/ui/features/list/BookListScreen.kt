@@ -75,9 +75,10 @@ private fun ListBooks(
         .padding(16.dp)
         .fillMaxSize()
 ) {
-    var books by remember { mutableStateOf(emptyList<Book>()) }
-    (state as? UpdateSuccess)?.let {
-        books = it.books
+
+    val books = when(state){
+        is UpdateSuccess -> state.books
+        else -> listOf()
     }
 
     Column {

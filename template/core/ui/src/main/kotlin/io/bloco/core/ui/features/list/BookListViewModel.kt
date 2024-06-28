@@ -11,7 +11,6 @@ import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.ErrorF
 import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.LoadingFromAPI
 import io.bloco.core.ui.features.list.BookListViewModel.ListScreenUiState.UpdateSuccess
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.debounce
@@ -42,7 +41,6 @@ class BookListViewModel @Inject constructor(
         events
             .filterIsInstance<Event.Refresh>()
             .onEach {
-                _state.value = LoadingFromAPI
                 searchBooks(_inputText.value)
             }
             .launchIn(viewModelScope)
@@ -58,6 +56,7 @@ class BookListViewModel @Inject constructor(
 
     private suspend fun searchBooks(keyword: String) {
         logd("searchBooks: $keyword ")
+        _state.value = LoadingFromAPI
         getBooksUseCase(keyword)
             .onSuccess { _state.value = UpdateSuccess(it) }
             .onFailure { _state.value = ErrorFromAPI }
@@ -66,7 +65,6 @@ class BookListViewModel @Inject constructor(
     private fun debounceSearchBooks() {
         viewModelScope.launch {
             _inputText.debounce(timeoutMillis = 200).collectLatest {
-                logd("Debounce searchBooks: $it ")
                 searchBooks(it)
             }
         }
